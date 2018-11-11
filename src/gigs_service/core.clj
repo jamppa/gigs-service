@@ -1,10 +1,8 @@
 (ns gigs-service.core
-  (:require
-    [yada.yada :refer [listener]]
-    [gigs-service.api.health :as health-api])
+  (:require [gigs-service.system :as gigs-system])
   (:gen-class))
 
 (defn -main
   []
-  (println "Starting service...")
-  (listener ["/api" [health-api/api]] {:port 3000}))
+  (println "Starting Gigs Service...")
+  (gigs-system/start-system))
