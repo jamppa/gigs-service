@@ -1,4 +1,5 @@
-(ns gigs-service.domain.project)
+(ns gigs-service.domain.project
+  (:import (java.util UUID)))
 
 (defrecord HoursEntry [date hours description])
 (defrecord Project [id name hours])
@@ -8,6 +9,6 @@
 
 (defn create-project [name]
   {:pre [(string? name)]}
-  (map->Project {:id (.toString (java.util.UUID/randomUUID))
-                 :name name
+  (map->Project {:id    (.toString (UUID/randomUUID))
+                 :name  name
                  :hours []}))
