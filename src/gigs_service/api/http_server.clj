@@ -10,14 +10,15 @@
 
   (start [component]
     (println "Starting HTTP API....")
-    (assoc component :server (listener
-                               ["/api"
-                                [
-                                 (health-api/create)
-                                 (project-api/create project-usecases)
-                                 ]
-                                ]
-                               {:port 3000})))
+    (assoc component :server
+                     (listener
+                       ["/api"
+                        [
+                         (health-api/create)
+                         (project-api/create project-usecases)
+                         ]
+                        ]
+                       {:port 3000})))
 
   (stop [component]
     (println "Stopping HTTP API...")
