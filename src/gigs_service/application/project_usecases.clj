@@ -8,11 +8,11 @@
 (defprotocol CreateNewProject
   (create-new! [this input]))
 
-(defrecord ProjectUseCases [project-repository]
+(defrecord ProjectUseCases [repository]
 
   CreateNewProject
-  (create-new! [_ input]
-    (let [new-project (project/create-new (:name input))]
+  (create-new! [_ {:keys [name]}]
+    (let [new-project (project/create-new name)]
       ;(project/save-project! new-project project-repository) TODO: implement repo
       (project-output new-project))))
 
