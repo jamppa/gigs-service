@@ -1,13 +1,12 @@
 (ns gigs-service.core
   (:require
-    [gigs-service.system :as gigs-system]
-    [environ.core :refer [env]])
+    [gigs-service.system :as gigs-system])
   (:gen-class))
 
-(def config
-  {:db {:url (env :db-url)}})
+(defn start []
+  (gigs-system/start-system (gigs-system/new-system)))
 
 (defn -main
   []
   (println "Starting Gigs Service...")
-  (gigs-system/start-system config))
+  (start))

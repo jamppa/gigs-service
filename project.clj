@@ -9,6 +9,13 @@
                  [com.stuartsierra/component "0.3.2"]
                  [com.novemberain/monger "3.1.0"]
                  [environ "1.1.0"]]
+  :plugins [[lein-environ "1.1.0"]]
   :main ^:skip-aot gigs-service.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all}
+             :dev [:project/dev :profiles/dev]
+             :test [:project/test :profiles/test]
+             :profiles/dev {}
+             :profiles/test {}
+             :project/dev {}
+             :project/test {}})
