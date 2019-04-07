@@ -9,10 +9,10 @@
   (create-new! [this input]))
 
 (defrecord ProjectUseCases [repository]
-
   CreateNewProject
+
   (create-new! [_ {:keys [name]}]
-    (let [new-project (project/create-new name)]
+    (let [new-project (project/build-new name)]
       ;(project/save-project! new-project project-repository) TODO: implement repo
       (project-output new-project))))
 

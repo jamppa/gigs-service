@@ -9,7 +9,7 @@
   component/Lifecycle
 
   (start [component]
-    (println "Starting HTTP API....")
+    (println "Starting HTTP API on port 3000")
     (assoc component :server
                      (listener
                        ["/api"

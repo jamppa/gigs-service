@@ -7,7 +7,7 @@
 (defprotocol ProjectRepository
   (save! [this ^Project project]))
 
-(defn create-new [name]
+(defn build-new [name]
   {:pre [(string? name)]}
   (map->Project {:id    (.toString (UUID/randomUUID))
                  :name  name
